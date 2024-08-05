@@ -36,10 +36,7 @@ namespace LedgerAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.Users
-                .Include(u => u.GroupMembers)
-                .ThenInclude(gm => gm.Group)
-                .ToListAsync();
+            return await _context.Users.ToListAsync();
         }
 
         // GET: api/Users/5
